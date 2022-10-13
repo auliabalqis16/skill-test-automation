@@ -1,0 +1,22 @@
+{
+  "name": "demo-automated-test",
+  "version": "1.0.0",
+  "description": "## WeatherBit API Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mul14/oqiwhfopiqwjf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mul14/oqiwhfopiqwjf/issues"
+  },
+  "homepage": "https://github.com/mul14/oqiwhfopiqwjf#readme",
+  "devDependencies": {
+    "puppeteer": "^18.2.1"
+  }
+}

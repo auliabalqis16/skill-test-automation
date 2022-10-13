@@ -1,0 +1,16 @@
+name: Newman Run
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: WeatherBit.postman_collection.json
+          envVar: '[{ "key": "apiKey", "value": "${{ secrets.APIKEY }}" }]'

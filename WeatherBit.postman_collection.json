@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "12ee2519-e799-439c-b0cc-363b80d286dd",
+		"name": "WeatherBit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10701"
+	},
+	"item": [
+		{
+			"name": "Weather",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test current location\", function () {",
+							"    let jsonData = pm.response.json();",
+							"",
+							"    let data = jsonData.data[0]",
+							"",
+							"    console.log('state_code', data.state_code)",
+							"",
+							"    pm.expect(data).to.have.property('state_code')",
+							"    pm.expect(data.state_code).to.eql('10');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.weatherbit.io/v2.0/current?lat=-7.795580&lon=110.369492",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weatherbit",
+						"io"
+					],
+					"path": [
+						"v2.0",
+						"current"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "-7.795580"
+						},
+						{
+							"key": "lon",
+							"value": "110.369492"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Postal Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test postal code\", function () {",
+							"    let jsonData = pm.response.json();",
+							"",
+							"    let data = jsonData.data[0]",
+							"",
+							"    console.log('Weather', data.weather)",
+							"    console.log('Timestamp', data.datetime)",
+							"",
+							"    pm.expect(data.weather).to.have.property('icon')",
+							"    pm.expect(data.weather).to.have.property('description')",
+							"    pm.expect(data.weather).to.have.property('code')",
+							"    pm.expect(data).to.have.property('datetime')",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.weatherbit.io/v2.0/current?postal_code=99501",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weatherbit",
+						"io"
+					],
+					"path": [
+						"v2.0",
+						"current"
+					],
+					"query": [
+						{
+							"key": "postal_code",
+							"value": "99501"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "key",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiKey",
+			"value": "KEY_ANDA_DISINI",
+			"type": "string"
+		}
+	]
+}
